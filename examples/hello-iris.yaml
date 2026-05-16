@@ -1,0 +1,59 @@
+title: hello-iris
+width: 1280
+height: 720
+fps: 30
+background: "#1a1a2e"
+
+scenes:
+  - type: title
+    durationFrames: 90
+    text: "Iris Video 🌈"
+    subtitle: "AI-first programmatic compositor"
+    background: "#1a1a2e"
+    color: "#ffffff"
+    fontSize: 96
+    transition:
+      type: fade
+      durationFrames: 15
+
+  - type: html
+    durationFrames: 90
+    background: "#0f0f23"
+    css: |
+      .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 64px; height: 100%; box-sizing: border-box; font-family: system-ui; color: white; }
+      .card { background: linear-gradient(135deg, #a78bfa, #f0abfc); border-radius: 24px; padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+      .card h2 { margin: 0 0 8px; font-size: 36px; }
+      .card p { margin: 0; font-size: 18px; opacity: 0.92; }
+    html: |
+      <div class="grid">
+        <div class="card">
+          <h2>HyperFrames</h2>
+          <p>HTML/CSS authoring · agent-friendly · filler-word cut</p>
+        </div>
+        <div class="card">
+          <h2>Remotion</h2>
+          <p>React composition · transitions · serverless render</p>
+        </div>
+        <div class="card" style="background: linear-gradient(135deg, #38bdf8, #a78bfa);">
+          <h2>Prism 🌈</h2>
+          <p>เอาจุดแข็งของทั้งสองมารวมกัน</p>
+        </div>
+        <div class="card" style="background: linear-gradient(135deg, #fb7185, #f0abfc);">
+          <h2>For Iris</h2>
+          <p>course videos · emotional support · daily reviews</p>
+        </div>
+      </div>
+    transition:
+      type: fade
+      durationFrames: 12
+
+  - type: title
+    durationFrames: 75
+    text: "พร้อมตัดต่อแล้วค่ะพี่นัท 💕"
+    subtitle: "iris-video v0.1.0"
+    background: "#312e81"
+    color: "#fef3c7"
+    fontSize: 72
+    transition:
+      type: fade
+      durationFrames: 15

@@ -1,0 +1,35 @@
+{
+  "name": "iris-video",
+  "version": "0.1.0",
+  "description": "Iris Video (Prism) — AI-first programmatic video compositor combining HyperFrames + Remotion strengths",
+  "module": "src/cli.ts",
+  "type": "module",
+  "bin": {
+    "iris-video": "./src/cli.ts"
+  },
+  "scripts": {
+    "render": "bun src/cli.ts render",
+    "preview": "remotion preview src/remotion-entry.tsx"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^25.8.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.462",
+    "@remotion/cli": "^4.0.462",
+    "@remotion/renderer": "^4.0.462",
+    "commander": "^14.0.3",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "remotion": "^4.0.462",
+    "yaml": "^2.9.0",
+    "zod": "^4.4.3"
+  }
+}
