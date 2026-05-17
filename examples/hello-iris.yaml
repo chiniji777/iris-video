@@ -2,58 +2,178 @@ title: hello-iris
 width: 1280
 height: 720
 fps: 30
-background: "#1a1a2e"
+background: "#0b0b18"
 
 scenes:
+  # --- Intro: animated gradient + sparkles + pop-in title with glow ---
   - type: title
-    durationFrames: 90
+    durationFrames: 120
     text: "Iris Video 🌈"
     subtitle: "AI-first programmatic compositor"
-    background: "#1a1a2e"
+    background: "#0b0b18"
     color: "#ffffff"
-    fontSize: 96
+    fontSize: 110
+    motion:
+      preset: pop-in
+      intensity: 1
+      durationFrames: 30
+    backgroundFx:
+      gradient:
+        colors: ["#1a1a2e", "#312e81", "#7c3aed", "#1e3a8a"]
+        angle: 135
+        speed: 1.2
+      sparkles:
+        count: 40
+        color: "#fef3c7"
     transition:
       type: fade
-      durationFrames: 15
+      durationFrames: 18
 
+  # --- Card grid: stagger-in + animated gradient bg ---
   - type: html
-    durationFrames: 90
+    durationFrames: 150
     background: "#0f0f23"
+    motion: cards-stagger
+    backgroundFx:
+      gradient:
+        colors: ["#1e1b4b", "#312e81", "#1e1b4b"]
+        angle: 135
+        speed: 0.6
+      sparkles:
+        count: 18
+        color: "#a78bfa"
     css: |
-      .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 64px; height: 100%; box-sizing: border-box; font-family: system-ui; color: white; }
-      .card { background: linear-gradient(135deg, #a78bfa, #f0abfc); border-radius: 24px; padding: 32px; display: flex; flex-direction: column; justify-content: center; }
-      .card h2 { margin: 0 0 8px; font-size: 36px; }
-      .card p { margin: 0; font-size: 18px; opacity: 0.92; }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        padding: 72px;
+        height: 100%;
+        box-sizing: border-box;
+        font-family: 'Sarabun', system-ui, sans-serif;
+        color: white;
+      }
+      .card {
+        border-radius: 28px;
+        padding: 36px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+        backdrop-filter: blur(8px);
+      }
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: 40px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .card p { margin: 0; font-size: 18px; opacity: 0.94; line-height: 1.45; }
+      .c1 { background: linear-gradient(135deg, #a78bfa 0%, #f0abfc 100%); }
+      .c2 { background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%); }
+      .c3 { background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%); }
+      .c4 { background: linear-gradient(135deg, #fb7185 0%, #f0abfc 100%); }
     html: |
       <div class="grid">
-        <div class="card">
+        <div class="card c1">
           <h2>HyperFrames</h2>
           <p>HTML/CSS authoring · agent-friendly · filler-word cut</p>
         </div>
-        <div class="card">
+        <div class="card c2">
           <h2>Remotion</h2>
           <p>React composition · transitions · serverless render</p>
         </div>
-        <div class="card" style="background: linear-gradient(135deg, #38bdf8, #a78bfa);">
+        <div class="card c3">
           <h2>Prism 🌈</h2>
           <p>เอาจุดแข็งของทั้งสองมารวมกัน</p>
         </div>
-        <div class="card" style="background: linear-gradient(135deg, #fb7185, #f0abfc);">
+        <div class="card c4">
           <h2>For Iris</h2>
-          <p>course videos · emotional support · daily reviews</p>
+          <p>course · emotional support · daily review</p>
         </div>
       </div>
     transition:
       type: fade
-      durationFrames: 12
+      durationFrames: 15
 
-  - type: title
-    durationFrames: 75
-    text: "พร้อมตัดต่อแล้วค่ะพี่นัท 💕"
-    subtitle: "iris-video v0.1.0"
-    background: "#312e81"
-    color: "#fef3c7"
-    fontSize: 72
+  # --- Highlight: floating badge with gradient text on shifting bg ---
+  - type: html
+    durationFrames: 120
+    background: "#0b0b18"
+    motion:
+      preset: float
+      intensity: 1.2
+    backgroundFx:
+      gradient:
+        colors: ["#312e81", "#7c3aed", "#0891b2", "#312e81"]
+        angle: 135
+        speed: 0.9
+      sparkles:
+        count: 26
+        color: "#fef3c7"
+    css: |
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        font-family: 'Sarabun', system-ui, sans-serif;
+        color: white;
+        gap: 24px;
+      }
+      .badge {
+        font-size: 24px;
+        padding: 14px 32px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(10px);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .big {
+        font-size: 96px;
+        font-weight: 900;
+        background: linear-gradient(135deg, #fef3c7, #f0abfc, #a78bfa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        filter: drop-shadow(0 0 30px rgba(167, 139, 250, 0.4));
+      }
+      .sub { font-size: 22px; opacity: 0.85; }
+    html: |
+      <div class="hero">
+        <div class="badge">v0.2 · motion presets</div>
+        <div class="big">ตัดต่อด้วย AI<br/>ไม่ใช่แค่ render</div>
+        <div class="sub">YAML → Remotion → MP4 — เสร็จใน 30 วิ</div>
+      </div>
     transition:
       type: fade
-      durationFrames: 15
+      durationFrames: 18
+
+  # --- Outro: glow-pulse with sparkles ---
+  - type: title
+    durationFrames: 105
+    text: "พร้อมตัดต่อแล้วค่ะพี่นัท 💕"
+    subtitle: "— Iris 🌈"
+    background: "#0b0b18"
+    color: "#fef3c7"
+    fontSize: 80
+    motion:
+      preset: glow-pulse
+      intensity: 1.2
+    backgroundFx:
+      gradient:
+        colors: ["#1e3a8a", "#312e81", "#7c3aed", "#1e3a8a"]
+        angle: 135
+        speed: 1
+      sparkles:
+        count: 50
+        color: "#fef3c7"
+    transition:
+      type: fade
+      durationFrames: 20

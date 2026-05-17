@@ -5,10 +5,56 @@ export const TransitionSchema = z.object({
   durationFrames: z.number().int().positive().default(15),
 });
 
+const MotionPresetEnum = z.enum([
+  "none",
+  "pop-in",
+  "slide-up",
+  "slide-down",
+  "slide-left",
+  "slide-right",
+  "zoom-in",
+  "zoom-out",
+  "ken-burns",
+  "ken-burns-reverse",
+  "glow-pulse",
+  "float",
+  "cards-stagger",
+  "blur-in",
+  "rotate-in",
+]);
+
+export const MotionSchema = z.union([
+  MotionPresetEnum,
+  z.object({
+    preset: MotionPresetEnum,
+    intensity: z.number().min(0).max(3).optional(),
+    delayFrames: z.number().int().min(0).optional(),
+    durationFrames: z.number().int().positive().optional(),
+  }),
+]);
+
+export const BackgroundFxSchema = z.object({
+  gradient: z
+    .object({
+      colors: z.array(z.string()).min(2),
+      angle: z.number().default(135),
+      speed: z.number().positive().default(1),
+    })
+    .optional(),
+  sparkles: z
+    .object({
+      count: z.number().int().positive().default(28),
+      color: z.string().default("#fef3c7"),
+    })
+    .optional(),
+});
+
 const BaseScene = z.object({
   id: z.string().optional(),
   durationFrames: z.number().int().positive(),
   transition: TransitionSchema.optional(),
+  motion: MotionSchema.optional(),
+  backgroundFx: BackgroundFxSchema.optional(),
 });
 
 export const VideoSceneSchema = BaseScene.extend({
