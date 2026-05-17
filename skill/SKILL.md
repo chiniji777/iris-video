@@ -39,15 +39,17 @@ Use `iris-video` when the user asks for:
 
 ## Invocation
 
-The skill drives this CLI:
+After `bash skill/install.sh` (or `bun link` in the repo), the CLI is on PATH
+globally — call it from any directory:
 
 ```bash
-cd ~/ghq/github.com/chiniji777/iris-video
-bun src/cli.ts validate <spec.yaml>          # syntax check only
-bun src/cli.ts render <spec.yaml> --output <out.mp4> --verbose
+iris-video validate <spec.yaml>                      # syntax check only
+iris-video render <spec.yaml> -o <out.mp4> --verbose # render to mp4
+iris-video --help
 ```
 
-Or with a one-liner from anywhere:
+If `iris-video` is not on PATH (skill installed but bun link skipped), fall
+back to:
 
 ```bash
 bun ~/ghq/github.com/chiniji777/iris-video/src/cli.ts render \
@@ -116,6 +118,60 @@ Per-scene `transition: { type, durationFrames }`. Types: `fade`, `slide`,
 `wipe`, `flip`, `clock-wipe`, `none`. Defaults to `none`. Transitions apply
 on enter AND exit for the scene (fade-in over first N frames, fade-out over
 last N frames).
+
+### Motion presets (v0.3 — 30 presets)
+
+Per-scene `motion: <preset>` or `motion: { preset, intensity, delayFrames, durationFrames }`.
+
+**Entrance** (one-shot): `pop-in` · `bounce-in` · `elastic-in` · `slide-up` ·
+`slide-down` · `slide-left` · `slide-right` · `zoom-in` · `zoom-out` ·
+`blur-in` · `rotate-in` · `flip-x` · `flip-y` · `swing-in` · `spin-in` ·
+`drop-in`
+
+**Cinematic** (whole-scene): `ken-burns` · `ken-burns-reverse`
+
+**Loop / continuous**: `glow-pulse` · `float` · `breathe` · `tilt-loop` ·
+`pulse` · `shake` · `wave` · `drift` · `pendulum` · `shimmer` · `glitch`
+
+**HTML grid stagger** (children animate one-by-one, ~150ms apart):
+`cards-stagger` (slide-up) · `cards-cascade` (slide-left + tilt) ·
+`cards-zoom-stagger` (scale-up)
+
+**Defaults**: `title` → `pop-in`, `image` → `ken-burns`, others → `none`.
+
+### Background FX (v0.3 — 15 components)
+
+Per-scene `backgroundFx: { ... }`. All deterministic (render-safe), can
+combine multiple in one scene. Render order is fixed (gradient → blobs →
+particles → overlays → noise).
+
+| Key | Use case | Params |
+|-----|----------|--------|
+| `gradient` | smooth shifting bg | `colors[], angle, speed` |
+| `aurora` | northern-lights blobs | `colors[]` (3+ recommended) |
+| `bokeh` | DOF circles drifting | `count, colors[]` |
+| `stars` | twinkling stars | `count, color` |
+| `sparkles` | floating dust + glow | `count, color` |
+| `grid` | cyberpunk lines | `color, spacing, speed` |
+| `lightRays` | conic light beams | `color, speed` |
+| `waves` | sine waves at bottom | `color, amplitude` |
+| `confetti` | falling rectangles | `count, colors[]` |
+| `hearts` | rising hearts ♥ | `count, color` |
+| `snow` | falling flakes | `count, color` |
+| `rain` | slanted rain lines | `count, color` |
+| `scanlines` | CRT horizontal lines | `color, spacing` |
+| `vignette` | edge darkening | `strength (0–1)` |
+| `noise` | film grain | `opacity (0–1)` |
+
+### Showcase reference
+
+`examples/showcase.yaml` renders one short scene per preset/FX (~2 min total)
+as a visual reference. Render with:
+
+```bash
+cd ~/ghq/github.com/chiniji777/iris-video
+bun src/cli.ts render examples/showcase.yaml --output out/showcase.mp4
+```
 
 ### Filler-word auto-cut
 

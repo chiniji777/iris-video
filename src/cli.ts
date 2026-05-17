@@ -10,7 +10,7 @@ const program = new Command();
 program
   .name("iris-video")
   .description("Iris Video (Prism) — AI-first programmatic video compositor")
-  .version("0.1.0");
+  .version("0.3.0");
 
 program
   .command("render <spec>")
