@@ -7,20 +7,42 @@ export const TransitionSchema = z.object({
 
 const MotionPresetEnum = z.enum([
   "none",
+  // Entrance
   "pop-in",
+  "bounce-in",
+  "elastic-in",
   "slide-up",
   "slide-down",
   "slide-left",
   "slide-right",
   "zoom-in",
   "zoom-out",
-  "ken-burns",
-  "ken-burns-reverse",
-  "glow-pulse",
-  "float",
-  "cards-stagger",
   "blur-in",
   "rotate-in",
+  "flip-x",
+  "flip-y",
+  "swing-in",
+  "spin-in",
+  "drop-in",
+  // Cinematic
+  "ken-burns",
+  "ken-burns-reverse",
+  // Loop / continuous
+  "glow-pulse",
+  "float",
+  "breathe",
+  "tilt-loop",
+  "pulse",
+  "shake",
+  "wave",
+  "drift",
+  "pendulum",
+  "shimmer",
+  "glitch",
+  // HTML stagger
+  "cards-stagger",
+  "cards-cascade",
+  "cards-zoom-stagger",
 ]);
 
 export const MotionSchema = z.union([
@@ -45,6 +67,82 @@ export const BackgroundFxSchema = z.object({
     .object({
       count: z.number().int().positive().default(28),
       color: z.string().default("#fef3c7"),
+    })
+    .optional(),
+  stars: z
+    .object({
+      count: z.number().int().positive().default(80),
+      color: z.string().default("#ffffff"),
+    })
+    .optional(),
+  bokeh: z
+    .object({
+      count: z.number().int().positive().default(10),
+      colors: z.array(z.string()).optional(),
+    })
+    .optional(),
+  aurora: z
+    .object({
+      colors: z.array(z.string()).min(2).optional(),
+    })
+    .optional(),
+  grid: z
+    .object({
+      color: z.string().default("rgba(167, 139, 250, 0.18)"),
+      spacing: z.number().int().positive().default(60),
+      speed: z.number().default(1),
+    })
+    .optional(),
+  waves: z
+    .object({
+      color: z.string().default("#a78bfa"),
+      amplitude: z.number().default(40),
+    })
+    .optional(),
+  lightRays: z
+    .object({
+      color: z.string().default("rgba(254, 243, 199, 0.18)"),
+      speed: z.number().default(1),
+    })
+    .optional(),
+  confetti: z
+    .object({
+      count: z.number().int().positive().default(80),
+      colors: z.array(z.string()).optional(),
+    })
+    .optional(),
+  hearts: z
+    .object({
+      count: z.number().int().positive().default(18),
+      color: z.string().default("#fb7185"),
+    })
+    .optional(),
+  snow: z
+    .object({
+      count: z.number().int().positive().default(60),
+      color: z.string().default("#ffffff"),
+    })
+    .optional(),
+  rain: z
+    .object({
+      count: z.number().int().positive().default(100),
+      color: z.string().default("rgba(186, 230, 253, 0.55)"),
+    })
+    .optional(),
+  scanlines: z
+    .object({
+      color: z.string().default("rgba(0, 0, 0, 0.18)"),
+      spacing: z.number().int().positive().default(4),
+    })
+    .optional(),
+  vignette: z
+    .object({
+      strength: z.number().min(0).max(1).default(0.7),
+    })
+    .optional(),
+  noise: z
+    .object({
+      opacity: z.number().min(0).max(1).default(0.08),
     })
     .optional(),
 });

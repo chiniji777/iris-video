@@ -1,7 +1,26 @@
 import React from "react";
 import { AbsoluteFill, Img, OffthreadVideo, useVideoConfig } from "remotion";
 import type { Scene } from "../dsl/schema";
-import { AnimatedGradient, MotionWrapper, parseMotion, Sparkles, STAGGER_CSS } from "./motion";
+import {
+  AnimatedGradient,
+  Aurora,
+  Bokeh,
+  Confetti,
+  GridLines,
+  Hearts,
+  LightRays,
+  MotionWrapper,
+  Noise,
+  parseMotion,
+  Rain,
+  Scanlines,
+  Snow,
+  Sparkles,
+  STAGGER_CSS,
+  Stars,
+  Vignette,
+  Waves,
+} from "./motion";
 
 const BackgroundFx: React.FC<{ scene: Scene }> = ({ scene }) => {
   const fx = scene.backgroundFx;
@@ -15,7 +34,26 @@ const BackgroundFx: React.FC<{ scene: Scene }> = ({ scene }) => {
           speed={fx.gradient.speed}
         />
       )}
+      {fx.aurora && <Aurora colors={fx.aurora.colors} />}
+      {fx.bokeh && <Bokeh count={fx.bokeh.count} colors={fx.bokeh.colors} />}
+      {fx.stars && <Stars count={fx.stars.count} color={fx.stars.color} />}
+      {fx.grid && (
+        <GridLines color={fx.grid.color} spacing={fx.grid.spacing} speed={fx.grid.speed} />
+      )}
+      {fx.lightRays && (
+        <LightRays color={fx.lightRays.color} speed={fx.lightRays.speed} />
+      )}
+      {fx.waves && <Waves color={fx.waves.color} amplitude={fx.waves.amplitude} />}
+      {fx.snow && <Snow count={fx.snow.count} color={fx.snow.color} />}
+      {fx.rain && <Rain count={fx.rain.count} color={fx.rain.color} />}
+      {fx.confetti && <Confetti count={fx.confetti.count} colors={fx.confetti.colors} />}
+      {fx.hearts && <Hearts count={fx.hearts.count} color={fx.hearts.color} />}
       {fx.sparkles && <Sparkles count={fx.sparkles.count} color={fx.sparkles.color} />}
+      {fx.scanlines && (
+        <Scanlines color={fx.scanlines.color} spacing={fx.scanlines.spacing} />
+      )}
+      {fx.vignette && <Vignette strength={fx.vignette.strength} />}
+      {fx.noise && <Noise opacity={fx.noise.opacity} />}
     </>
   );
 };
@@ -105,15 +143,23 @@ export const ImageScene: React.FC<{ scene: Extract<Scene, { type: "image" }> }> 
   );
 };
 
+const STAGGER_PRESETS = new Set(["cards-stagger", "cards-cascade", "cards-zoom-stagger"]);
+
 export const HtmlScene: React.FC<{ scene: Extract<Scene, { type: "html" }> }> = ({ scene }) => {
   const motion = parseMotion(scene.motion);
-  const useStagger = motion.preset === "cards-stagger";
+  const isStagger = STAGGER_PRESETS.has(motion.preset);
   return (
     <AbsoluteFill style={{ backgroundColor: scene.background }}>
       <BackgroundFx scene={scene} />
       {scene.css && <style dangerouslySetInnerHTML={{ __html: scene.css }} />}
-      {useStagger && <style dangerouslySetInnerHTML={{ __html: STAGGER_CSS }} />}
-      {useStagger ? (
+      {isStagger && (
+        <style
+          dangerouslySetInnerHTML={{
+            __html: STAGGER_CSS[motion.preset] ?? STAGGER_CSS["cards-stagger"]!,
+          }}
+        />
+      )}
+      {isStagger ? (
         <div
           className="iris-stagger"
           style={{ width: "100%", height: "100%" }}

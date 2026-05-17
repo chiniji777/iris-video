@@ -1,0 +1,447 @@
+# iris-video motion + FX showcase
+# Each scene ≈ 2.5s — quick demo of every preset.
+title: showcase
+width: 1280
+height: 720
+fps: 30
+background: "#0b0b18"
+
+scenes:
+  # ============= ENTRANCE PRESETS =============
+  - type: title
+    durationFrames: 60
+    text: "pop-in"
+    subtitle: "spring overshoot"
+    background: "#1a1a2e"
+    color: "#a78bfa"
+    fontSize: 96
+    motion: pop-in
+
+  - type: title
+    durationFrames: 60
+    text: "bounce-in"
+    subtitle: "drop + bounce"
+    background: "#1a1a2e"
+    color: "#38bdf8"
+    fontSize: 96
+    motion: bounce-in
+
+  - type: title
+    durationFrames: 60
+    text: "elastic-in"
+    subtitle: "wiggle settle"
+    background: "#1a1a2e"
+    color: "#f0abfc"
+    fontSize: 96
+    motion: elastic-in
+
+  - type: title
+    durationFrames: 50
+    text: "slide-up"
+    background: "#1a1a2e"
+    color: "#fef3c7"
+    fontSize: 96
+    motion: slide-up
+  - type: title
+    durationFrames: 50
+    text: "slide-down"
+    background: "#1a1a2e"
+    color: "#fef3c7"
+    fontSize: 96
+    motion: slide-down
+  - type: title
+    durationFrames: 50
+    text: "slide-left"
+    background: "#1a1a2e"
+    color: "#fef3c7"
+    fontSize: 96
+    motion: slide-left
+  - type: title
+    durationFrames: 50
+    text: "slide-right"
+    background: "#1a1a2e"
+    color: "#fef3c7"
+    fontSize: 96
+    motion: slide-right
+
+  - type: title
+    durationFrames: 60
+    text: "zoom-in"
+    background: "#1a1a2e"
+    color: "#34d399"
+    fontSize: 96
+    motion: zoom-in
+  - type: title
+    durationFrames: 60
+    text: "zoom-out"
+    background: "#1a1a2e"
+    color: "#34d399"
+    fontSize: 96
+    motion: zoom-out
+
+  - type: title
+    durationFrames: 60
+    text: "blur-in"
+    background: "#1a1a2e"
+    color: "#a78bfa"
+    fontSize: 96
+    motion: blur-in
+  - type: title
+    durationFrames: 60
+    text: "rotate-in"
+    background: "#1a1a2e"
+    color: "#38bdf8"
+    fontSize: 96
+    motion: rotate-in
+  - type: title
+    durationFrames: 60
+    text: "flip-x"
+    background: "#1a1a2e"
+    color: "#fb7185"
+    fontSize: 96
+    motion: flip-x
+  - type: title
+    durationFrames: 60
+    text: "flip-y"
+    background: "#1a1a2e"
+    color: "#fb7185"
+    fontSize: 96
+    motion: flip-y
+  - type: title
+    durationFrames: 60
+    text: "swing-in"
+    background: "#1a1a2e"
+    color: "#f0abfc"
+    fontSize: 96
+    motion: swing-in
+  - type: title
+    durationFrames: 70
+    text: "spin-in"
+    background: "#1a1a2e"
+    color: "#fef3c7"
+    fontSize: 96
+    motion: spin-in
+  - type: title
+    durationFrames: 60
+    text: "drop-in"
+    background: "#1a1a2e"
+    color: "#34d399"
+    fontSize: 96
+    motion: drop-in
+
+  # ============= LOOP / CONTINUOUS =============
+  - type: title
+    durationFrames: 90
+    text: "glow-pulse"
+    background: "#0b0b18"
+    color: "#a78bfa"
+    fontSize: 96
+    motion: glow-pulse
+  - type: title
+    durationFrames: 90
+    text: "float"
+    background: "#0b0b18"
+    color: "#fef3c7"
+    fontSize: 96
+    motion: float
+  - type: title
+    durationFrames: 90
+    text: "breathe"
+    background: "#0b0b18"
+    color: "#38bdf8"
+    fontSize: 96
+    motion: breathe
+  - type: title
+    durationFrames: 90
+    text: "tilt-loop"
+    background: "#0b0b18"
+    color: "#f0abfc"
+    fontSize: 96
+    motion: tilt-loop
+  - type: title
+    durationFrames: 90
+    text: "pulse"
+    background: "#0b0b18"
+    color: "#fb7185"
+    fontSize: 96
+    motion: pulse
+  - type: title
+    durationFrames: 60
+    text: "shake"
+    subtitle: "alert / warning"
+    background: "#1a0b0b"
+    color: "#fb7185"
+    fontSize: 96
+    motion: shake
+  - type: title
+    durationFrames: 90
+    text: "wave"
+    background: "#0b0b18"
+    color: "#38bdf8"
+    fontSize: 96
+    motion: wave
+  - type: title
+    durationFrames: 90
+    text: "drift"
+    background: "#0b0b18"
+    color: "#34d399"
+    fontSize: 96
+    motion: drift
+  - type: title
+    durationFrames: 90
+    text: "pendulum"
+    background: "#0b0b18"
+    color: "#fef3c7"
+    fontSize: 96
+    motion: pendulum
+  - type: title
+    durationFrames: 90
+    text: "shimmer"
+    background: "#0b0b18"
+    color: "#a78bfa"
+    fontSize: 96
+    motion: shimmer
+  - type: title
+    durationFrames: 75
+    text: "glitch"
+    subtitle: "RGB split jitter"
+    background: "#000"
+    color: "#ffffff"
+    fontSize: 96
+    motion: glitch
+
+  # ============= BACKGROUND FX =============
+  - type: title
+    durationFrames: 90
+    text: "gradient"
+    background: "#000"
+    color: "#ffffff"
+    fontSize: 80
+    motion: pop-in
+    backgroundFx:
+      gradient:
+        colors: ["#1a1a2e", "#312e81", "#7c3aed", "#1e3a8a"]
+        speed: 1.2
+
+  - type: title
+    durationFrames: 90
+    text: "sparkles"
+    background: "#0b0b18"
+    color: "#fef3c7"
+    fontSize: 80
+    motion: pop-in
+    backgroundFx:
+      sparkles: { count: 40, color: "#fef3c7" }
+
+  - type: title
+    durationFrames: 90
+    text: "stars"
+    background: "#000"
+    color: "#ffffff"
+    fontSize: 80
+    motion: pop-in
+    backgroundFx:
+      stars: { count: 120 }
+
+  - type: title
+    durationFrames: 90
+    text: "bokeh"
+    background: "#1a1a2e"
+    color: "#ffffff"
+    fontSize: 80
+    motion: pop-in
+    backgroundFx:
+      bokeh: { count: 12 }
+
+  - type: title
+    durationFrames: 90
+    text: "aurora"
+    background: "#000"
+    color: "#ffffff"
+    fontSize: 80
+    motion: pop-in
+    backgroundFx:
+      aurora:
+        colors: ["#a78bfa", "#34d399", "#38bdf8"]
+
+  - type: title
+    durationFrames: 90
+    text: "grid"
+    subtitle: "cyberpunk vibes"
+    background: "#000"
+    color: "#a78bfa"
+    fontSize: 80
+    motion: pop-in
+    backgroundFx:
+      grid: { spacing: 50 }
+
+  - type: title
+    durationFrames: 90
+    text: "lightRays"
+    background: "#000"
+    color: "#fef3c7"
+    fontSize: 80
+    motion: pop-in
+    backgroundFx:
+      lightRays: { speed: 1.2 }
+
+  - type: title
+    durationFrames: 90
+    text: "waves"
+    background: "#1a1a2e"
+    color: "#ffffff"
+    fontSize: 80
+    motion: pop-in
+    backgroundFx:
+      waves: { color: "#38bdf8" }
+
+  - type: title
+    durationFrames: 90
+    text: "snow"
+    background: "#1e293b"
+    color: "#ffffff"
+    fontSize: 80
+    motion: pop-in
+    backgroundFx:
+      snow: { count: 80 }
+
+  - type: title
+    durationFrames: 90
+    text: "rain"
+    background: "#0f172a"
+    color: "#bae6fd"
+    fontSize: 80
+    motion: pop-in
+    backgroundFx:
+      rain: { count: 140 }
+
+  - type: title
+    durationFrames: 105
+    text: "confetti 🎉"
+    subtitle: "celebrate"
+    background: "#1a1a2e"
+    color: "#fef3c7"
+    fontSize: 80
+    motion: bounce-in
+    backgroundFx:
+      confetti: { count: 100 }
+
+  - type: title
+    durationFrames: 105
+    text: "hearts 💕"
+    subtitle: "love"
+    background: "#1a1a2e"
+    color: "#fb7185"
+    fontSize: 80
+    motion: pop-in
+    backgroundFx:
+      hearts: { count: 22 }
+
+  - type: title
+    durationFrames: 75
+    text: "scanlines"
+    subtitle: "CRT retro"
+    background: "#1a1a2e"
+    color: "#a78bfa"
+    fontSize: 80
+    motion: pop-in
+    backgroundFx:
+      scanlines: {}
+      vignette: { strength: 0.6 }
+
+  - type: title
+    durationFrames: 75
+    text: "noise + vignette"
+    subtitle: "film grain"
+    background: "#1a1a2e"
+    color: "#fef3c7"
+    fontSize: 70
+    motion: pop-in
+    backgroundFx:
+      noise: { opacity: 0.15 }
+      vignette: { strength: 0.6 }
+
+  # ============= STAGGER VARIANTS =============
+  - type: html
+    durationFrames: 90
+    background: "#0f0f23"
+    motion: cards-stagger
+    backgroundFx:
+      gradient:
+        colors: ["#1e1b4b", "#312e81", "#1e1b4b"]
+        speed: 0.6
+    css: |
+      .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 60px; height: 100%; box-sizing: border-box; font-family: 'Sarabun', system-ui, sans-serif; color: white; }
+      .c { border-radius: 24px; padding: 32px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; background: linear-gradient(135deg, #a78bfa, #f0abfc); }
+    html: |
+      <div class="grid">
+        <div class="c" style="background: linear-gradient(135deg, #a78bfa, #f0abfc);">cards-stagger</div>
+        <div class="c" style="background: linear-gradient(135deg, #38bdf8, #818cf8);">slide-up</div>
+        <div class="c" style="background: linear-gradient(135deg, #34d399, #38bdf8);">fade</div>
+        <div class="c" style="background: linear-gradient(135deg, #fb7185, #f0abfc);">scale</div>
+        <div class="c" style="background: linear-gradient(135deg, #fef3c7, #fbbf24);">together</div>
+        <div class="c" style="background: linear-gradient(135deg, #a78bfa, #38bdf8);">🌈</div>
+      </div>
+
+  - type: html
+    durationFrames: 105
+    background: "#0f0f23"
+    motion: cards-cascade
+    backgroundFx:
+      gradient:
+        colors: ["#0c4a6e", "#1e3a8a", "#0c4a6e"]
+        speed: 0.6
+    css: |
+      .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; padding: 70px; height: 100%; box-sizing: border-box; font-family: 'Sarabun', system-ui, sans-serif; color: white; }
+      .c { border-radius: 24px; padding: 36px; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 800; }
+    html: |
+      <div class="grid">
+        <div class="c" style="background: linear-gradient(135deg, #a78bfa, #f0abfc);">cards</div>
+        <div class="c" style="background: linear-gradient(135deg, #38bdf8, #818cf8);">cascade</div>
+        <div class="c" style="background: linear-gradient(135deg, #34d399, #38bdf8);">slide</div>
+        <div class="c" style="background: linear-gradient(135deg, #fb7185, #f0abfc);">tilt</div>
+      </div>
+
+  - type: html
+    durationFrames: 105
+    background: "#0f0f23"
+    motion: cards-zoom-stagger
+    backgroundFx:
+      gradient:
+        colors: ["#312e81", "#7c3aed", "#312e81"]
+        speed: 0.6
+    css: |
+      .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 60px; height: 100%; box-sizing: border-box; font-family: 'Sarabun', system-ui, sans-serif; color: white; }
+      .c { border-radius: 22px; padding: 28px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; aspect-ratio: 1; }
+    html: |
+      <div class="grid">
+        <div class="c" style="background: linear-gradient(135deg, #a78bfa, #f0abfc);">zoom</div>
+        <div class="c" style="background: linear-gradient(135deg, #38bdf8, #818cf8);">stagger</div>
+        <div class="c" style="background: linear-gradient(135deg, #34d399, #38bdf8);">pop</div>
+        <div class="c" style="background: linear-gradient(135deg, #fb7185, #f0abfc);">in</div>
+        <div class="c" style="background: linear-gradient(135deg, #fef3c7, #fbbf24);">one</div>
+        <div class="c" style="background: linear-gradient(135deg, #a78bfa, #38bdf8);">by</div>
+        <div class="c" style="background: linear-gradient(135deg, #f0abfc, #fb7185);">one</div>
+        <div class="c" style="background: linear-gradient(135deg, #34d399, #fef3c7);">🌈</div>
+      </div>
+
+  # ============= OUTRO =============
+  - type: title
+    durationFrames: 120
+    text: "พร้อมใช้แล้วค่ะพี่นัท 💕"
+    subtitle: "30 motions · 15 background FX"
+    background: "#0b0b18"
+    color: "#fef3c7"
+    fontSize: 72
+    motion:
+      preset: glow-pulse
+      intensity: 1.2
+    backgroundFx:
+      gradient:
+        colors: ["#1e3a8a", "#312e81", "#7c3aed", "#1e3a8a"]
+        speed: 1
+      sparkles: { count: 60, color: "#fef3c7" }
+      confetti: { count: 60 }
+    transition:
+      type: fade
+      durationFrames: 24
